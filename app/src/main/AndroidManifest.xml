@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cerpenkimia.koloid">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Koloid">
+        <activity android:name=".cerpen.CerpenEditActivity"></activity>
+        <activity android:name=".login.RegisterActivity" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".cerpen.CerpenDetailActivity" />
+        <activity android:name=".cerpen.CerpenAddActivity" />
+        <activity android:name=".cerpen.CerpenActivity" />
+        <activity android:name=".petunjuk_penggunaan.GuideActivity" />
+        <activity android:name=".pendahuluan.BasicCompetencyActivity" />
+        <activity android:name=".pendahuluan.CoreCompetencyActivity" />
+        <activity android:name=".pendahuluan.PreliminaryActivity" />
+        <activity android:name=".HomepageActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

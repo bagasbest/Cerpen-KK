@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "937937796452",
+    "project_id": "cerpen-kimia-koloid",
+    "storage_bucket": "cerpen-kimia-koloid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937937796452:android:6f07263f4418c933004e71",
+        "android_client_info": {
+          "package_name": "com.cerpenkimia.koloid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937937796452-lrkvg7fahbbts2mfiin6a8m92q7f8noh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPqm4-B39UMd-sE0e-JpXrntiN4IqjMjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937937796452-lrkvg7fahbbts2mfiin6a8m92q7f8noh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
