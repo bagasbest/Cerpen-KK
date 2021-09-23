@@ -109,7 +109,7 @@ public class CerpenAddActivity extends AppCompatActivity {
     private void showSuccessDialog() {
         new AlertDialog.Builder(this)
                 .setTitle("Berhasil Mengunggah Cerpen Kimia")
-                .setMessage("Cerpen Kimia akan segera terbit, anda dapat mengedit atau menghapus kamera jika terdapat kesalahan")
+                .setMessage("Cerpen Kimia akan segera terbit, anda dapat mengedit atau menghapus cerpen jika terdapat kesalahan")
                 .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
                 .setPositiveButton("OKE", (dialogInterface, i) -> {
                     dialogInterface.dismiss();

@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Koloid">
-        <activity android:name=".cerpen.CerpenEditActivity"></activity>
+        <activity android:name=".quiz.quiz_a_solution.QuizASolutionActivity"></activity>
+        <activity android:name=".quiz.QuizAScoreActivity" />
+        <activity android:name=".quiz.QuizAQuestionEditActivity" />
+        <activity android:name=".quiz.QuizAQuestionAddActivity" />
+        <activity android:name=".quiz.QuizAQuestionActivity" />
+        <activity android:name=".quiz.QuizDashboardActivity" />
+        <activity android:name=".cerpen.CerpenEditActivity" />
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".cerpen.CerpenDetailActivity" />

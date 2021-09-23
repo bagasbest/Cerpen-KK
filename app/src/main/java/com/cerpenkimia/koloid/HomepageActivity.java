@@ -13,6 +13,7 @@ import com.cerpenkimia.koloid.login.LoginActivity;
 import com.cerpenkimia.koloid.pendahuluan.CoreCompetencyActivity;
 import com.cerpenkimia.koloid.pendahuluan.PreliminaryActivity;
 import com.cerpenkimia.koloid.petunjuk_penggunaan.GuideActivity;
+import com.cerpenkimia.koloid.quiz.QuizDashboardActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomepageActivity extends AppCompatActivity {
@@ -67,10 +68,11 @@ public class HomepageActivity extends AppCompatActivity {
         });
 
 
+        // ke halaman quiz dahboard
         binding.view5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomepageActivity.this, PreliminaryActivity.class));
+                startActivity(new Intent(HomepageActivity.this, QuizDashboardActivity.class));
             }
         });
 

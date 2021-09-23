@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".quiz.QuizDashboardActivity">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rounded"
+        android:contentDescription="@string/button"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="Quiz Dashboard"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Quiz"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <View
+        android:id="@+id/quizA"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_border"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/roundedImageView5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/quizA"
+        app:layout_constraintEnd_toEndOf="@+id/quizA"
+        app:layout_constraintStart_toStartOf="@+id/quizA"
+        app:layout_constraintTop_toTopOf="@+id/quizA" />
+
+    <View
+        android:id="@+id/quizB"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_border"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="50dp"
+        android:id="@+id/roundedImageView55"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/quizB"
+        app:layout_constraintEnd_toEndOf="@+id/quizB"
+        app:layout_constraintStart_toStartOf="@+id/quizB"
+        app:layout_constraintTop_toTopOf="@+id/quizB" />
+
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skor"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizA" />
+
+    <View
+        android:id="@+id/skorA"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_border"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/roundedImageView77"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/skorA"
+        app:layout_constraintEnd_toEndOf="@+id/skorA"
+        app:layout_constraintStart_toStartOf="@+id/skorA"
+        app:layout_constraintTop_toTopOf="@+id/skorA" />
+
+    <View
+        android:id="@+id/skorB"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_border"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/roundedImageView9"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/skorB"
+        app:layout_constraintEnd_toEndOf="@+id/skorB"
+        app:layout_constraintStart_toStartOf="@+id/skorB"
+        app:layout_constraintTop_toTopOf="@+id/skorB" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/roundedImageView6"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView77"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView77"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView77"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView77" />
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="15dp"
+        android:id="@+id/roundedImageView7"
+        android:layout_height="15dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView9"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView9"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView9"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
