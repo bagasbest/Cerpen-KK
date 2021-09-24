@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Koloid">
-        <activity android:name=".quiz.quiz_a_solution.QuizASolutionActivity"></activity>
+        <activity android:name=".referensi.ReferencesActivity"></activity>
+        <activity android:name=".rangkuman.SummaryActivity" />
+        <activity android:name=".pengenalan_tokoh.PengenalanTokohActivity" />
+        <activity android:name=".pendahuluan.IndicatorActivity" />
+        <activity android:name=".quiz.score.ScoreActivity" />
+        <activity android:name=".profil.ProfileActivity" />
+        <activity android:name=".quiz.quiz_a_solution.QuizASolutionActivity" />
         <activity android:name=".quiz.QuizAScoreActivity" />
         <activity android:name=".quiz.QuizAQuestionEditActivity" />
         <activity android:name=".quiz.QuizAQuestionAddActivity" />

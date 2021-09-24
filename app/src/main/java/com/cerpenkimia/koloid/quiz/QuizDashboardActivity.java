@@ -9,6 +9,7 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.cerpenkimia.koloid.R;
 import com.cerpenkimia.koloid.databinding.ActivityQuizDashboardBinding;
+import com.cerpenkimia.koloid.quiz.score.ScoreActivity;
 
 public class QuizDashboardActivity extends AppCompatActivity {
 
@@ -42,13 +43,34 @@ public class QuizDashboardActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load(R.drawable.b)
-                .into(binding.roundedImageView6);
+                .into(binding.roundedImageView7);
 
 
         // kembali ke homepage
         binding.imageButton.setOnClickListener(view -> onBackPressed());
 
+        // ikuti quiz A
         binding.quizA.setOnClickListener(view -> startActivity(new Intent(QuizDashboardActivity.this, QuizAQuestionActivity.class)));
+
+        // lihat skor Quiz A
+        binding.skorA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(QuizDashboardActivity.this, ScoreActivity.class);
+                intent.putExtra(ScoreActivity.EXTRA_SCORE, "A");
+                startActivity(intent);
+            }
+        });
+
+        // lihat skor Quiz B
+        binding.skorB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(QuizDashboardActivity.this, ScoreActivity.class);
+                intent.putExtra(ScoreActivity.EXTRA_SCORE, "B");
+                startActivity(intent);
+            }
+        });
 
     }
 

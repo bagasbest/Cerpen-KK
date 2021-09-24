@@ -43,11 +43,16 @@ public class QuizAScoreActivity extends AppCompatActivity {
 
         // kembali ke homepage
         binding.finishBtn.setOnClickListener(view -> {
-            saveScore(questionTotal);
+            String name = binding.nameEt.getText().toString().trim();
+            if(name.isEmpty()) {
+                Toast.makeText(QuizAScoreActivity.this, "Nama Lengkap anda tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            saveScore(questionTotal, name);
         });
     }
 
-    private void saveScore(double scores) {
+    private void saveScore(double scores, String name) {
 
 
         // simpan skor ke firebase
@@ -62,6 +67,8 @@ public class QuizAScoreActivity extends AppCompatActivity {
         Map<String, Object> score = new HashMap<>();
         score.put("scoreId", scoreId);
         score.put("score", scores);
+        score.put("name", name);
+        score.put("nameTemp", name.toLowerCase());
 
         FirebaseFirestore
                 .getInstance()

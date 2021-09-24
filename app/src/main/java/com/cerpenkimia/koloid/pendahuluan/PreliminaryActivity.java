@@ -41,6 +41,13 @@ public class PreliminaryActivity extends AppCompatActivity {
             }
         });
 
+        binding.view11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PreliminaryActivity.this, IndicatorActivity.class));
+            }
+        });
+
     }
 
     @Override

@@ -31,31 +31,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
+    <View
+        android:id="@+id/view18"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
 
     <Button
         android:id="@+id/button"
-        android:layout_width="200dp"
+        android:layout_width="170dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rounded"
         android:text="Lihat Pembahasan"
+        android:layout_marginStart="16dp"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/view17"
-        app:layout_constraintStart_toStartOf="@+id/view17"
-        app:layout_constraintTop_toBottomOf="@+id/view17" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view18" />
 
     <Button
         android:id="@+id/finishBtn"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="60dp"
+        android:layout_marginTop="16dp"
         android:text="Selesai"
         android:textAllCaps="false"
+        android:background="@drawable/bg_rounded"
+        android:layout_marginEnd="16dp"
         android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/view17"
-        app:layout_constraintStart_toStartOf="@+id/view17"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view18" />
 
     <TextView
         android:id="@+id/correctAns"
@@ -102,6 +115,28 @@
         app:layout_constraintStart_toStartOf="@+id/view17"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout7"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view17">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded"
+            android:backgroundTint="@color/white"
+            android:hint="Nama Lengkap Anda"
+            android:inputType="textCapWords" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
