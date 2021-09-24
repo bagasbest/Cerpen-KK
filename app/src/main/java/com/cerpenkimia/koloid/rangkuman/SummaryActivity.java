@@ -79,7 +79,7 @@ public class SummaryActivity extends AppCompatActivity {
                 .getInstance()
                 .collection("summary")
                 .document("summary")
-                .update(summaryMap)
+                .set(summaryMap)
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()) {
                         summary = summaryText;
@@ -128,7 +128,6 @@ public class SummaryActivity extends AppCompatActivity {
                 .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
                 .setPositiveButton("OKE", (dialogInterface, i) -> {
                     dialogInterface.dismiss();
-                    onBackPressed();
                 })
                 .show();
     }

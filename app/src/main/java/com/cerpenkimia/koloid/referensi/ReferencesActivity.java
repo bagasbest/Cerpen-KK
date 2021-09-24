@@ -75,7 +75,7 @@ public class ReferencesActivity extends AppCompatActivity {
                 .getInstance()
                 .collection("reference")
                 .document("reference")
-                .update(referenceMap)
+                .set(referenceMap)
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()) {
                         reference = referenceText;
@@ -124,7 +124,6 @@ public class ReferencesActivity extends AppCompatActivity {
                 .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
                 .setPositiveButton("OKE", (dialogInterface, i) -> {
                     dialogInterface.dismiss();
-                    onBackPressed();
                 })
                 .show();
     }

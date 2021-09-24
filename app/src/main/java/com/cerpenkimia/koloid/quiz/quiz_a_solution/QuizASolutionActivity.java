@@ -10,14 +10,18 @@ import com.cerpenkimia.koloid.databinding.ActivityQuizAsolutionBinding;
 public class QuizASolutionActivity extends AppCompatActivity {
 
 
+    public static final String EXTRA_SOL = "sol";
     private ActivityQuizAsolutionBinding binding;
     private QuizAAdapter adapter;
+    private String sol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityQuizAsolutionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        sol = getIntent().getStringExtra(EXTRA_SOL);
 
         // kembali ke halaman skor
         binding.imageButton.setOnClickListener(view -> onBackPressed());
@@ -32,7 +36,7 @@ public class QuizASolutionActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         binding.rvSolution.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new QuizAAdapter();
+        adapter = new QuizAAdapter(sol);
         binding.rvSolution.setAdapter(adapter);
     }
 
@@ -40,7 +44,11 @@ public class QuizASolutionActivity extends AppCompatActivity {
         QuizAViewModel viewModel = new ViewModelProvider(this).get(QuizAViewModel.class);
 
         binding.progressBar.setVisibility(View.VISIBLE);
-        viewModel.setListQuiz("quiz_a");
+        if(sol.equals("A")) {
+            viewModel.setListQuiz("quiz_a");
+        } else {
+            viewModel.setListQuiz("quiz_b");
+        }
         viewModel.getQuiz().observe(this, quiz -> {
             if (quiz.size() > 0) {
                 adapter.setData(quiz);

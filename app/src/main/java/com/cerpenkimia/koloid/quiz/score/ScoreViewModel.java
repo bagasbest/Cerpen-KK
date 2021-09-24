@@ -32,7 +32,7 @@ public class ScoreViewModel extends ViewModel {
                                 ScoreModel model = new ScoreModel();
 
                                 model.setName("" + document.get("name"));
-                                model.setScore("" + document.get("score"));
+                                model.setScore(document.getDouble("score"));
 
                                 scoreModelArrayList.add(model);
                             }
@@ -62,7 +62,7 @@ public class ScoreViewModel extends ViewModel {
                                 ScoreModel model = new ScoreModel();
 
                                 model.setName("" + document.get("name"));
-                                model.setScore("" + document.get("score"));
+                                model.setScore(document.getDouble("score"));
 
                                 scoreModelArrayList.add(model);
                             }

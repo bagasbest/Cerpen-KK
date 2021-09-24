@@ -2,9 +2,13 @@ package com.cerpenkimia.koloid;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import com.cerpenkimia.koloid.cerpen.CerpenActivity;
+import com.cerpenkimia.koloid.cerpen.CerpenDetailActivity;
 import com.cerpenkimia.koloid.databinding.ActivityHomepageBinding;
 import com.cerpenkimia.koloid.login.LoginActivity;
 import com.cerpenkimia.koloid.pendahuluan.PreliminaryActivity;
@@ -26,11 +30,27 @@ public class HomepageActivity extends AppCompatActivity {
         binding = ActivityHomepageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // klik login, menuju ke halaman login (jika belum login)
-        binding.login.setOnClickListener(view -> {
-            // cek apakah pengguna sudah login atau belum
-            checkLoginState();
-        });
+        // cek apakah pengguna sudah login atau belum
+        checkLoginState();
+
+        // ketika admin ingin login
+        binding.login.setOnClickListener(view -> startActivity(new Intent(HomepageActivity.this, LoginActivity.class)));
+
+        // ketika admin ingin logout
+        binding.logout.setOnClickListener(view -> new AlertDialog.Builder(HomepageActivity.this)
+                .setTitle("Konfirmasi Logout Admin")
+                .setMessage("Apakah anda yakin ingin logout ?")
+                .setIcon(R.drawable.ic_baseline_warning_24)
+                .setPositiveButton("YA", (dialogInterface, i) -> {
+                    // hapus cerpen kimia
+                    FirebaseAuth.getInstance().signOut();
+
+                    binding.logout.setVisibility(View.INVISIBLE);
+                    binding.login.setVisibility(View.VISIBLE);
+
+                })
+                .setNegativeButton("TIDAK", null)
+                .show());
 
         // ke halaman Petunjuk penggunaan
         binding.view.setOnClickListener(view -> startActivity(new Intent(HomepageActivity.this, GuideActivity.class)));
@@ -59,17 +79,10 @@ public class HomepageActivity extends AppCompatActivity {
     }
 
     private void checkLoginState() {
-        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Anda Sudah Login")
-                    .setMessage("Saat ini status anda adalah ADMIN")
-                    .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
-                    .setPositiveButton("OKE", (dialogInterface, i) -> {
-                        dialogInterface.dismiss();
-                    })
-                    .show();
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+           binding.logout.setVisibility(View.VISIBLE);
         } else {
-            startActivity(new Intent(HomepageActivity.this, LoginActivity.class));
+            binding.login.setVisibility(View.VISIBLE);
         }
     }
 

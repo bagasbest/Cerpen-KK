@@ -73,7 +73,7 @@ public class IndicatorActivity extends AppCompatActivity {
                 .getInstance()
                 .collection("indicator")
                 .document("indicator")
-                .update(indicatorMap)
+                .set(indicatorMap)
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()) {
                         indicator = indicatorText;
@@ -122,7 +122,6 @@ public class IndicatorActivity extends AppCompatActivity {
                 .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
                 .setPositiveButton("OKE", (dialogInterface, i) -> {
                     dialogInterface.dismiss();
-                    onBackPressed();
                 })
                 .show();
     }

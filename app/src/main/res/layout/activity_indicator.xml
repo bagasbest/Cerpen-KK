@@ -94,7 +94,7 @@
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
-        <com.codesgood.views.JustifiedTextView
+        <TextView
             android:id="@+id/indicatorTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

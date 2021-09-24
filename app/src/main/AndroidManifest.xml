@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Koloid">
-        <activity android:name=".referensi.ReferencesActivity"></activity>
+        <activity android:name=".quiz.QuizBQuestionEditActivity"></activity>
+        <activity android:name=".quiz.QuizBQuestionAddActivity" />
+        <activity android:name=".quiz.QuizBQuestionActivity" />
+        <activity android:name=".profil.ProfileEditActivity" />
+        <activity android:name=".referensi.ReferencesActivity" />
         <activity android:name=".rangkuman.SummaryActivity" />
         <activity android:name=".pengenalan_tokoh.PengenalanTokohActivity" />
         <activity android:name=".pendahuluan.IndicatorActivity" />

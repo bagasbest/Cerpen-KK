@@ -52,6 +52,9 @@ public class QuizDashboardActivity extends AppCompatActivity {
         // ikuti quiz A
         binding.quizA.setOnClickListener(view -> startActivity(new Intent(QuizDashboardActivity.this, QuizAQuestionActivity.class)));
 
+        // ikuti quiz B
+        binding.quizB.setOnClickListener(view -> startActivity(new Intent(QuizDashboardActivity.this, QuizBQuestionActivity.class)));
+
         // lihat skor Quiz A
         binding.skorA.setOnClickListener(new View.OnClickListener() {
             @Override

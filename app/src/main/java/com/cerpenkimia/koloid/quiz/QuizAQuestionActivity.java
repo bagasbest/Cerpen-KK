@@ -75,6 +75,9 @@ public class QuizAQuestionActivity extends AppCompatActivity {
         binding.prevBtn.setOnClickListener(view -> {
             questionSection--;
             if(questionSection == 0) {
+                if(questionList.size() == 2) {
+                    binding.finishBtn.setVisibility(View.GONE);
+                }
                 binding.prevBtn.setVisibility(View.GONE);
                 binding.textView13.setVisibility(View.GONE);
             } else if (questionSection == questionList.size() - 2) {
@@ -207,6 +210,7 @@ public class QuizAQuestionActivity extends AppCompatActivity {
                         intent.putExtra(QuizAScoreActivity.CORRECT, correctAns);
                         intent.putExtra(QuizAScoreActivity.FAILURE, failureAns);
                         intent.putExtra(QuizAScoreActivity.TOTAL, questionList.size());
+                        intent.putExtra(QuizAScoreActivity.TYPE, "A");
                         startActivity(intent);
 
                     })

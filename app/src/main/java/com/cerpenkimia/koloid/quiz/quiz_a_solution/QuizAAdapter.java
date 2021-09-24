@@ -18,7 +18,13 @@ import java.util.ArrayList;
 
 public class QuizAAdapter extends RecyclerView.Adapter<QuizAAdapter.ViewHolder> {
 
-    private ArrayList<QuizAModel> listQuiz = new ArrayList<>();
+    private final ArrayList<QuizAModel> listQuiz = new ArrayList<>();
+
+    private final String sol;
+    public QuizAAdapter(String sol) {
+        this.sol = sol;
+    }
+
     public void setData(ArrayList<QuizAModel> items) {
         listQuiz.clear();
         listQuiz.addAll(items);
@@ -35,7 +41,7 @@ public class QuizAAdapter extends RecyclerView.Adapter<QuizAAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull QuizAAdapter.ViewHolder holder, int position) {
-        holder.bind(listQuiz.get(position));
+        holder.bind(listQuiz.get(position), sol);
     }
 
     @Override
@@ -60,13 +66,23 @@ public class QuizAAdapter extends RecyclerView.Adapter<QuizAAdapter.ViewHolder> 
         }
 
         @SuppressLint("SetTextI18n")
-        public void bind(QuizAModel model) {
+        public void bind(QuizAModel model, String sol) {
             question.setText(model.getQuestion());
-            a.setText("A. " + model.getA());
-            b.setText("B. " + model.getA());
-            c.setText("C. " + model.getA());
-            d.setText("D. " + model.getA());
-            e.setText("E. " + model.getA());
+
+            if(sol.equals("A")) {
+                a.setText("A. " + model.getA());
+                b.setText("B. " + model.getA());
+                c.setText("C. " + model.getA());
+                d.setText("D. " + model.getA());
+                e.setText("E. " + model.getA());
+            } else {
+                a.setVisibility(View.GONE);
+                b.setVisibility(View.GONE);
+                c.setVisibility(View.GONE);
+                d.setVisibility(View.GONE);
+                e.setVisibility(View.GONE);
+            }
+
             answer.setText("Jawaban: " + model.getAnswer());
             solution.setText(model.getSolution());
         }

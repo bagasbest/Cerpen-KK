@@ -3,7 +3,7 @@ package com.cerpenkimia.koloid.quiz.score;
 public class ScoreModel {
 
     private String name;
-    private String score;
+    private double score;
 
     public ScoreModel(){}
 
@@ -15,11 +15,11 @@ public class ScoreModel {
         this.name = name;
     }
 
-    public String getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(double score) {
         this.score = score;
     }
 }

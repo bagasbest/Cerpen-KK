@@ -35,9 +35,10 @@
 
     <TextView
         android:id="@+id/textView21"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.45"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:text="Dosen 1"
         android:textColor="@color/black"
@@ -47,10 +48,13 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView22"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        app:layout_constraintWidth_percent="0.45"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="textEnd"
         android:text="Dosen 2"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -58,9 +62,12 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView25"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="100dp"
         android:text="Nama"
         android:textColor="@color/black"
@@ -75,11 +82,12 @@
         android:layout_height="100dp"
         android:layout_marginTop="20sp"
         app:civ_border_width="3dp"
+        android:src="@drawable/ic_baseline_face_24"
         android:id="@+id/avatar"
         app:civ_border_color="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
 
     <TextView
@@ -98,7 +106,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="16dp"
         android:text="P.KIMIA 15"
         android:layout_marginTop="100dp"
         android:textColor="@color/black"
@@ -113,9 +121,25 @@
         android:text="UIN Jakarta"
         android:textColor="@color/black"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="16dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+
+    <ImageButton
+        android:id="@+id/editBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounded"
+        android:contentDescription="@string/image"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/holo_green_dark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

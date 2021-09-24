@@ -1,5 +1,6 @@
 package com.cerpenkimia.koloid.quiz.score;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,9 +52,10 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
             score = itemView.findViewById(R.id.score);
         }
 
+        @SuppressLint({"DefaultLocale", "SetTextI18n"})
         public void bind(ScoreModel model) {
             name.setText("Nama: " + model.getName());
-            score.setText("Skor: " + model.getScore());
+            score.setText("Skor: " + String.format("%.1f", model.getScore()));
         }
     }
 }

@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import org.jetbrains.annotations.NotNull;
+
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +24,7 @@ public class QuizAScoreActivity extends AppCompatActivity {
     public static final String CORRECT = "correct" ;
     public static final String FAILURE = "failure";
     public static final String TOTAL = "size";
+    public static final String TYPE = "type";
     private ActivityQuizAscoreBinding binding;
 
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -36,10 +39,15 @@ public class QuizAScoreActivity extends AppCompatActivity {
 
         // hitung total skor 1 - 100
         double questionTotal = (Double.parseDouble(String.valueOf(getIntent().getIntExtra(CORRECT, 0))) / Double.parseDouble(String.valueOf(getIntent().getIntExtra(TOTAL, 0)))) * 100;
-        binding.score.setText(String.valueOf(questionTotal));
+        DecimalFormat decimalFormat = new DecimalFormat("0.0");
+        binding.score.setText(decimalFormat.format(questionTotal));
 
-        // ke halaman solusi Quiz A
-        binding.button.setOnClickListener(view -> startActivity(new Intent(QuizAScoreActivity.this, QuizASolutionActivity.class)));
+        // ke halaman solusi Quiz A / B
+        binding.button.setOnClickListener(view -> {
+            Intent intent = new Intent(QuizAScoreActivity.this, QuizASolutionActivity.class);
+            intent.putExtra(QuizASolutionActivity.EXTRA_SOL, getIntent().getStringExtra(TYPE));
+            startActivity(intent);
+        });
 
         // kembali ke homepage
         binding.finishBtn.setOnClickListener(view -> {
@@ -48,11 +56,17 @@ public class QuizAScoreActivity extends AppCompatActivity {
                 Toast.makeText(QuizAScoreActivity.this, "Nama Lengkap anda tidak boleh kosong", Toast.LENGTH_SHORT).show();
                 return;
             }
-            saveScore(questionTotal, name);
+
+
+            if(getIntent().getStringExtra(TYPE).equals("A")) {
+                saveScore(questionTotal, name, "score_quiz_a");
+            } else {
+                saveScore(questionTotal, name, "score_quiz_b");
+            }
         });
     }
 
-    private void saveScore(double scores, String name) {
+    private void saveScore(double scores, String name, String collection) {
 
 
         // simpan skor ke firebase
@@ -72,7 +86,7 @@ public class QuizAScoreActivity extends AppCompatActivity {
 
         FirebaseFirestore
                 .getInstance()
-                .collection("score_quiz_a")
+                .collection(collection)
                 .document(scoreId)
                 .set(score)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -80,6 +94,7 @@ public class QuizAScoreActivity extends AppCompatActivity {
                     public void onComplete(@NonNull @NotNull Task<Void> task) {
                         if(task.isSuccessful()) {
                             mProgressDialog.dismiss();
+                            Toast.makeText(QuizAScoreActivity.this, "Berhasil menyimpan skor", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(QuizAScoreActivity.this, HomepageActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
