@@ -67,7 +67,7 @@ public class ReferencesActivity extends AppCompatActivity {
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
 
-        // simpan indikator ke database
+        // simpan referensi ke database
         Map<String, Object> referenceMap = new HashMap<>();
         referenceMap.put("reference", referenceText);
 
