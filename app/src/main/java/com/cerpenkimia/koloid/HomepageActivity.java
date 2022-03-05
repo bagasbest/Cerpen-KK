@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.cerpenkimia.koloid.cerpen.CerpenActivity;
 import com.cerpenkimia.koloid.cerpen.CerpenDetailActivity;
 import com.cerpenkimia.koloid.databinding.ActivityHomepageBinding;
@@ -32,6 +33,10 @@ public class HomepageActivity extends AppCompatActivity {
 
         // cek apakah pengguna sudah login atau belum
         checkLoginState();
+
+        Glide.with(this)
+                .load(R.drawable.home_bg)
+                .into(binding.homeBg);
 
         // ketika admin ingin login
         binding.login.setOnClickListener(view -> startActivity(new Intent(HomepageActivity.this, LoginActivity.class)));

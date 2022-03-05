@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    tools:context=".rangkuman.SummaryActivity">
-
+    tools:context=".utils.AddDataActivity">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -20,13 +19,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <ImageButton
+        android:id="@+id/save"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rounded"
+        app:tint="@color/white"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:contentDescription="@string/button"
+        android:src="@drawable/ic_baseline_check_circle_outline_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        android:text="Rangkuman"
+        android:text="Tambah data"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -34,43 +47,28 @@
         app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
 
-    <ImageButton
-        android:id="@+id/edit"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_rounded"
-        android:contentDescription="@string/image"
-        android:src="@drawable/ic_baseline_edit_24"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/add"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/add"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_rounded"
-        android:contentDescription="@string/image"
-        android:src="@drawable/ic_baseline_add_24"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSummary"
+        android:id="@+id/rvAdd"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
+        tools:listitem="@layout/item_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        tools:listitem="@layout/item_component" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/yellow"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,7 +42,7 @@ public class QuizAScoreActivity extends AppCompatActivity {
         DecimalFormat decimalFormat = new DecimalFormat("0.0");
         binding.score.setText(decimalFormat.format(questionTotal));
 
-        // ke halaman solusi Quiz A / B
+        // ke halaman solusi Quiz A
         binding.button.setOnClickListener(view -> {
             Intent intent = new Intent(QuizAScoreActivity.this, QuizASolutionActivity.class);
             intent.putExtra(QuizASolutionActivity.EXTRA_SOL, getIntent().getStringExtra(TYPE));
@@ -60,8 +60,6 @@ public class QuizAScoreActivity extends AppCompatActivity {
 
             if(getIntent().getStringExtra(TYPE).equals("A")) {
                 saveScore(questionTotal, name, "score_quiz_a");
-            } else {
-                saveScore(questionTotal, name, "score_quiz_b");
             }
         });
     }

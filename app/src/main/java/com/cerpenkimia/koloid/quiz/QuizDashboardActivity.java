@@ -22,28 +22,18 @@ public class QuizDashboardActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Glide.with(this)
-                .load(R.drawable.a)
+                .load(R.drawable.quiz_new)
                 .into(binding.roundedImageView5);
 
-        Glide.with(this)
-                .load(R.drawable.b)
-                .into(binding.roundedImageView55);
 
         Glide.with(this)
-                .load(R.drawable.score)
+                .load(R.drawable.quiz_new)
                 .into(binding.roundedImageView77);
 
+
         Glide.with(this)
                 .load(R.drawable.score)
-                .into(binding.roundedImageView9);
-
-        Glide.with(this)
-                .load(R.drawable.a)
                 .into(binding.roundedImageView6);
-
-        Glide.with(this)
-                .load(R.drawable.b)
-                .into(binding.roundedImageView7);
 
 
         // kembali ke homepage
@@ -52,28 +42,16 @@ public class QuizDashboardActivity extends AppCompatActivity {
         // ikuti quiz A
         binding.quizA.setOnClickListener(view -> startActivity(new Intent(QuizDashboardActivity.this, QuizAQuestionActivity.class)));
 
-        // ikuti quiz B
-        binding.quizB.setOnClickListener(view -> startActivity(new Intent(QuizDashboardActivity.this, QuizBQuestionActivity.class)));
 
         // lihat skor Quiz A
         binding.skorA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(QuizDashboardActivity.this, ScoreActivity.class);
-                intent.putExtra(ScoreActivity.EXTRA_SCORE, "A");
                 startActivity(intent);
             }
         });
 
-        // lihat skor Quiz B
-        binding.skorB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(QuizDashboardActivity.this, ScoreActivity.class);
-                intent.putExtra(ScoreActivity.EXTRA_SCORE, "B");
-                startActivity(intent);
-            }
-        });
 
     }
 

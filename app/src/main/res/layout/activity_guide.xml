@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,378 +7,70 @@
     android:background="@color/bg"
     tools:context=".petunjuk_penggunaan.GuideActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rounded"
+        android:contentDescription="@string/button"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="Petunjuk Penggunaan"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+
+    <ImageButton
+        android:id="@+id/edit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounded"
+        android:contentDescription="@string/image"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/add"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounded"
+        android:contentDescription="@string/image"
+        android:src="@drawable/ic_baseline_add_24"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGuide"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        tools:listitem="@layout/item_component" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/bg_rounded"
-            android:contentDescription="@string/button"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:text="Petunjuk Penggunaan"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imageButton"
-            app:layout_constraintTop_toTopOf="@+id/imageButton" />
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20sp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton">
-
-            <TextView
-                android:id="@+id/bullet8"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="1."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Selama menggunakan Aplikasi Cerpen Kimia KOLOID, pastikan internet dalam keadaan aktif, karena aplikasi memerlukan koneksi internet untuk memuat konten."
-                android:textColor="@android:color/black"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-            <TextView
-                android:id="@+id/bullet9"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="2."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pada halaman utama terdapat 8 menu yang dapat anda eksplorasi, yaitu sebagai berikut: Petunjuk Penggunaan, Pendahuluan, Pengenalan Tokoh, Cerpen Kimia, Kuis, Rangkuman, Referensi, dan Profil."
-                android:textColor="@android:color/black"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-            <TextView
-                android:id="@+id/bullet10"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="3."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Terdapat 2 jenis pengguna pada aplikasi Cerpen Kimia KOLOID, yaitu: Admin dan Pengguna. Admin bertugas menambahkan, mengedit, dan menghapus Cerpen Kimia, kemudian menambahkan kuis, dan mengedit referensi, rangkuman, pengenalan tokoh, dan profil. Sedangkan pengguna hanya dapat membaca cerpen, mengerjakan kuis, dan mengeksplorasi menu lain."
-                android:textColor="@android:color/black"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
-            <TextView
-                android:id="@+id/bullet11"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="4."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu petunjuk penggunaan berfungsi sebagai informasi terhadap kegunaan dari sudatu menu dan fitur pada aplikasi Cerpen Kimia KOLOID."
-                android:textColor="@android:color/black"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="5."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Terdapat halaman login yang dapat di akses pada halaman utama, di bagian atas, ketika admin menekan tombol login, aplikasi akan mengarahkan anda ke halaman login, jika anda merupakan admin, silahkan masukkan email dan kata sandi"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="6."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu pendahuluan berisi 3 informasi, yaitu Kompetensi Dasar, Kompetensi Inti, dan Indikator dari aplikasi Cerpen Kimia KOLOID"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="7."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu Pengenalan Tokoh berisi informasi mengenai penokohan pada Cerpen Kimia KOLOID"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="8."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu Cerpen Kimia merupakan menu dimana pengguna dapat memilih dan membaca Cerpen Kimia yang telah di terbitkan oleh admin"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout11"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="9."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu Kuis berisi 2 jenis kuis, yaitu kuis A merupakan kuis pilihan ganda, dan kuis B merupakan kuis essay, pada menu kuis juga terdapat Skor A dan B yang berisi seluruh ranking pennguna yang telah berhasil mengerjakan kuis, dimana nilai di urutkan dari posisi tertinggi hingga terendah, dan pengguna juga dapat mencari nama untuk melihat skornya"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="10."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu Rangkuman berisi poin - poin penting mengenai Cerpen Kimia, admin dapat mengedit konten pada menu ini."
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout15"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="11."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu Referensi berisi semua referensi yang berkaitan dengan aplikasi Cerpen Kimia KOLOID, admin dapat mengedit konten pada menu ini"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout15">
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="12."
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <com.codesgood.views.JustifiedTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu Profil berisi informasi mengenai pemilik aplikasi, admin dapat mengedit profil"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>

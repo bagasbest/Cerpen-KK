@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import com.bumptech.glide.Glide;
 import com.cerpenkimia.koloid.R;
 import com.cerpenkimia.koloid.databinding.ActivityCerpenDetailBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CerpenDetailActivity extends AppCompatActivity {
@@ -21,6 +24,12 @@ public class CerpenDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCerpenDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // cek apakah admin atau bukan
+        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+            binding.editBtn.setVisibility(View.VISIBLE);
+            binding.deleteBtn.setVisibility(View.VISIBLE);
+        }
 
         // ambil data cerpen dan set data cerpen ke dalam view xml
         model = getIntent().getParcelableExtra(EXTRA_CERPEN);

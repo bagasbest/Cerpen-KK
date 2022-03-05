@@ -52,37 +52,19 @@
         android:layout_height="80dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_border"
-        android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedImageView5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/quizA"
         app:layout_constraintEnd_toEndOf="@+id/quizA"
         app:layout_constraintStart_toStartOf="@+id/quizA"
         app:layout_constraintTop_toTopOf="@+id/quizA" />
 
-    <View
-        android:id="@+id/quizB"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/bg_border"
-        android:layout_marginStart="50dp"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="50dp"
-        android:id="@+id/roundedImageView55"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/quizB"
-        app:layout_constraintEnd_toEndOf="@+id/quizB"
-        app:layout_constraintStart_toStartOf="@+id/quizB"
-        app:layout_constraintTop_toTopOf="@+id/quizB" />
 
 
     <TextView
@@ -104,57 +86,28 @@
         android:layout_height="80dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_border"
-        android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedImageView77"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/skorA"
         app:layout_constraintEnd_toEndOf="@+id/skorA"
         app:layout_constraintStart_toStartOf="@+id/skorA"
         app:layout_constraintTop_toTopOf="@+id/skorA" />
 
-    <View
-        android:id="@+id/skorB"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/bg_border"
-        android:layout_marginStart="50dp"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/roundedImageView9"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/skorB"
-        app:layout_constraintEnd_toEndOf="@+id/skorB"
-        app:layout_constraintStart_toStartOf="@+id/skorB"
-        app:layout_constraintTop_toTopOf="@+id/skorB" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedImageView6"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/roundedImageView77"
         app:layout_constraintEnd_toEndOf="@+id/roundedImageView77"
         app:layout_constraintStart_toStartOf="@+id/roundedImageView77"
         app:layout_constraintTop_toTopOf="@+id/roundedImageView77" />
-
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="15dp"
-        android:id="@+id/roundedImageView7"
-        android:layout_height="15dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView9"
-        app:layout_constraintEnd_toEndOf="@+id/roundedImageView9"
-        app:layout_constraintStart_toStartOf="@+id/roundedImageView9"
-        app:layout_constraintTop_toTopOf="@+id/roundedImageView9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,6 @@ import android.view.View;
 import com.cerpenkimia.koloid.databinding.ActivityScoreBinding;
 public class ScoreActivity extends AppCompatActivity {
 
-    public static final String EXTRA_SCORE = "SCORE";
     private ActivityScoreBinding binding;
     private ScoreAdapter adapter;
 
@@ -21,12 +20,6 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityScoreBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        if(getIntent().getStringExtra(EXTRA_SCORE).equals("A")) {
-            binding.title.setText("Skor Quiz A");
-        } else {
-            binding.title.setText("Skor Quiz B");
-        }
 
         initRecyclerView();
         initViewModel("all");
@@ -75,18 +68,10 @@ public class ScoreActivity extends AppCompatActivity {
         ScoreViewModel viewModel = new ViewModelProvider(this).get(ScoreViewModel.class);
 
         binding.progressBar.setVisibility(View.VISIBLE);
-        if(getIntent().getStringExtra(EXTRA_SCORE).equals("A")) {
-            if(query.equals("all")){
-                viewModel.setListScore("score_quiz_a");
-            } else {
-                viewModel.setListScoreByName("score_quiz_a", query);
-            }
+        if(query.equals("all")){
+            viewModel.setListScore("score_quiz_a");
         } else {
-            if(query.equals("all")){
-                viewModel.setListScore("score_quiz_b");
-            } else {
-                viewModel.setListScoreByName("score_quiz_b", query);
-            }
+            viewModel.setListScoreByName("score_quiz_a", query);
         }
 
         viewModel.getQuiz().observe(this, quiz -> {

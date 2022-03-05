@@ -4,9 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
     tools:context=".HomepageActivity">
 
+    <ImageView
+        android:id="@+id/home_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/image"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,9 +80,9 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedImageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/petunjuk"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/petunjuk_new"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"
@@ -104,9 +113,9 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedImageView2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/pendahuluan"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/pendahuluan_new"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
@@ -136,9 +145,9 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedImageView4"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/tokoh"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/pengenalan_tokoh"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintStart_toStartOf="@+id/view3"
@@ -170,9 +179,9 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/roundedImageView3"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/cerpen"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/cerpen_new"
         app:layout_constraintBottom_toBottomOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="@+id/view4"
         app:layout_constraintStart_toStartOf="@+id/view4"
@@ -202,9 +211,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/quiz"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/quiz_new"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintEnd_toEndOf="@+id/view5"
         app:layout_constraintStart_toStartOf="@+id/view5"
@@ -234,9 +243,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/rangkuman"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/rangkuman_new"
         app:layout_constraintBottom_toBottomOf="@+id/view6"
         app:layout_constraintEnd_toEndOf="@+id/view6"
         app:layout_constraintStart_toStartOf="@+id/view6"
@@ -265,9 +274,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/referensi"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/referensi_new"
         app:layout_constraintBottom_toBottomOf="@+id/view7"
         app:layout_constraintEnd_toEndOf="@+id/view7"
         app:layout_constraintStart_toStartOf="@+id/view7"
@@ -297,9 +306,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/profile"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/profile_new"
         app:layout_constraintBottom_toBottomOf="@+id/view8"
         app:layout_constraintEnd_toEndOf="@+id/view8"
         app:layout_constraintStart_toStartOf="@+id/view8"

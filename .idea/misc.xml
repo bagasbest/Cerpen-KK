@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_add_data.xml" value="0.22239583333333332" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_basic_competency.xml" value="0.11499493414387031" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_cerpen.xml" value="0.11499493414387031" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_cerpen_detail.xml" value="0.11499493414387031" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_edit.xml" value="0.23645833333333333" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_edit_data.xml" value="0.23645833333333333" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_guide.xml" value="0.2" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_homepage.xml" value="0.264" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_main.xml" value="0.11499493414387031" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_quiz_ascore.xml" value="0.2" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_quiz_dashboard.xml" value="0.264" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_references.xml" value="0.11499493414387031" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_score.xml" value="0.264" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/activity_summary.xml" value="0.136" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/item_add.xml" value="0.23645833333333333" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/item_component.xml" value="0.23645833333333333" />
+        <entry key="..\:/TUBES_GALERI/koloid/app/src/main/res/layout/item_guide.xml" value="0.23645833333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
