@@ -88,13 +88,19 @@ public class SummaryActivity extends AppCompatActivity {
                 data.addAll(summary.get(0).getData());
                 adapter.setData(data);
             }
+            checkRole();
         });
     }
 
     private void checkRole() {
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
-            binding.add.setVisibility(View.VISIBLE);
-            binding.edit.setVisibility(View.VISIBLE);
+            if(data.size() == 0) {
+                binding.add.setVisibility(View.VISIBLE);
+                binding.edit.setVisibility(View.GONE);
+            } else {
+                binding.add.setVisibility(View.GONE);
+                binding.edit.setVisibility(View.VISIBLE);
+            }
         }
     }
 

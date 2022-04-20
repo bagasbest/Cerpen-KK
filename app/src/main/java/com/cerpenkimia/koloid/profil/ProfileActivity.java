@@ -61,23 +61,40 @@ public class ProfileActivity extends AppCompatActivity {
                         model.setLecturer2("" + documentSnapshot.get("lecturer2"));
                         model.setName("" + documentSnapshot.get("name"));
                         model.setNim("" + documentSnapshot.get("nim"));
+                        model.setAvatarLecturer1("" + documentSnapshot.get("avatarLecturer1"));
+                        model.setAvatarLecturer2("" + documentSnapshot.get("avatarLecturer2"));
+                        model.setEmail("" + documentSnapshot.get("email"));
 
 
                         Glide.with(ProfileActivity.this)
                                 .load(model.getAvatar())
                                 .into(binding.avatar);
 
+                        Glide.with(ProfileActivity.this)
+                                .load(model.getAvatarLecturer1())
+                                .into(binding.dosen1);
+
+                        Glide.with(ProfileActivity.this)
+                                .load(model.getAvatarLecturer2())
+                                .into(binding.dosen2);
+
+
+
                         binding.textView21.setText(model.getLecturer1());
                         binding.textView22.setText(model.getLecturer2());
                         binding.textView23.setText("NIM. " + model.getNim());
+                        binding.email.setText("Email: " + model.getEmail());
                         binding.textView25.setText(model.getName());
 
                     } else {
                         model.setAvatar("");
+                        model.setAvatarLecturer1("");
+                        model.setAvatarLecturer2("");
                         model.setLecturer1("");
                         model.setLecturer2("");
                         model.setName("");
                         model.setNim("");
+                        model.setEmail("");
                     }
                 });
     }

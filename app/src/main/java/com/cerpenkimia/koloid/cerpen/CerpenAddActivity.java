@@ -2,30 +2,39 @@ package com.cerpenkimia.koloid.cerpen;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-import com.bumptech.glide.Glide;
+
 import com.cerpenkimia.koloid.R;
 import com.cerpenkimia.koloid.databinding.ActivityCerpenAddBinding;
-import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CerpenAddActivity extends AppCompatActivity {
 
     private ActivityCerpenAddBinding binding;
-    private String dp;
-    private static final int REQUEST_FROM_GALLERY = 1001;
+    private ArrayList<Uri> uri = new ArrayList<>();
+    private ArrayList<String> dp = new ArrayList<>();
+    private static final int READ_PERMISSION = 101;
+    private ImageAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,21 +42,55 @@ public class CerpenAddActivity extends AppCompatActivity {
         binding = ActivityCerpenAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        initRecyclerView();
+
+        checkImagePermission();
+
         // kembali ke halaman sebelumnya
         binding.imageButton.setOnClickListener(view -> onBackPressed());
 
         // klik tombol tambahkan cerpen baru
         binding.addCerpenBtn.setOnClickListener(view -> {
             // verifikasi form tambahkan cerpen baru
-            formVerification();
+
+            if(uri.size() == 0) {
+                Toast.makeText(this, "Minimal harus ada 1 gambar", Toast.LENGTH_SHORT).show();
+            } else {
+                for(int i=0; i<uri.size(); i++) {
+                    if(i+1 == uri.size()) {
+                        uploadCerpenImage(uri.get(i), true);
+                    } else {
+                        uploadCerpenImage(uri.get(i), false);
+                    }
+                }
+            }
         });
 
 
-        // KLIK TAMBAH GAMBAR
-        binding.imageHint.setOnClickListener(view -> ImagePicker.with(CerpenAddActivity.this)
-                .galleryOnly()
-                .compress(1024)
-                .start(REQUEST_FROM_GALLERY));
+      binding.add.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), 1);
+          }
+      });
+
+    }
+
+
+    private void checkImagePermission() {
+        if(ContextCompat.checkSelfPermission(CerpenAddActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(CerpenAddActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_PERMISSION);
+        }
+    }
+
+    private void initRecyclerView() {
+        adapter = new ImageAdapter(uri, null, "add");
+        binding.rvImage.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvImage.setAdapter(adapter);
     }
 
     private void formVerification() {
@@ -60,8 +103,8 @@ public class CerpenAddActivity extends AppCompatActivity {
         } else if (description.isEmpty()) {
             Toast.makeText(CerpenAddActivity.this, "Isi Cerpen Kimia tidak boleh kosong", Toast.LENGTH_SHORT).show();
             return;
-        } else if (dp == null) {
-            Toast.makeText(CerpenAddActivity.this, "Gambar Cerpen Kimia tidak boleh kosong", Toast.LENGTH_SHORT).show();
+        } else if (dp.size() == 0) {
+            Toast.makeText(CerpenAddActivity.this, "Minimal 1 gambar ditambahkan", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -118,18 +161,26 @@ public class CerpenAddActivity extends AppCompatActivity {
                 .show();
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == REQUEST_FROM_GALLERY) {
-                uploadCerpenImage(data.getData());
-            }
-        }
+       if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
+           if(data.getClipData() != null) {
+               int x = data.getClipData().getItemCount();
+
+               for(int i=0; i<x; i++) {
+                   uri.add(data.getClipData().getItemAt(i).getUri());
+               }
+           } else {
+               Uri imageUri = data.getData();
+               uri.add(imageUri);
+           }
+           adapter.notifyDataSetChanged();
+       }
     }
 
-    private void uploadCerpenImage(Uri data) {
+    private void uploadCerpenImage(Uri data, boolean result) {
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
         ProgressDialog mProgressDialog = new ProgressDialog(this);
 
@@ -143,12 +194,11 @@ public class CerpenAddActivity extends AppCompatActivity {
                         mStorageRef.child(imageFileName).getDownloadUrl()
                                 .addOnSuccessListener(uri -> {
                                     mProgressDialog.dismiss();
-                                    dp = uri.toString();
-                                    binding.imageHint.setVisibility(View.GONE);
-                                    Glide
-                                            .with(this)
-                                            .load(dp)
-                                            .into(binding.dp);
+                                    dp.add(uri.toString());
+
+                                    if(result) {
+                                        formVerification();
+                                    }
                                 })
                                 .addOnFailureListener(e -> {
                                     mProgressDialog.dismiss();

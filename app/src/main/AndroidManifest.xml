@@ -3,13 +3,15 @@
     package="com.cerpenkimia.koloid" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/Theme.Koloid" >
         <activity
             android:name=".utils.AddDataActivity"

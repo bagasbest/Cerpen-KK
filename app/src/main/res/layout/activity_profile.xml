@@ -34,97 +34,169 @@
 
 
     <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Profil Editor"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+
+    <TextView
         android:id="@+id/textView21"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.45"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
         android:text="Dosen 1"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        android:layout_marginTop="16sp"
+        android:textSize="18sp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@+id/textView30"
+        app:layout_constraintTop_toBottomOf="@+id/dosen1"
+        app:layout_constraintWidth_percent="0.45" />
 
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintWidth_percent="0.45"
-        android:layout_marginEnd="16dp"
-        android:textAlignment="textEnd"
         android:text="Dosen 2"
+        android:textAlignment="textEnd"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:layout_marginTop="16sp"
+        android:layout_marginEnd="16sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/dosen2"
+        app:layout_constraintWidth_percent="0.45" />
 
     <TextView
         android:id="@+id/textView25"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:layout_width="0dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
         android:text="Nama"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toTopOf="@+id/avatar" />
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="20sp"
-        app:civ_border_width="3dp"
-        android:src="@drawable/ic_baseline_face_24"
-        android:id="@+id/avatar"
-        app:civ_border_color="@android:color/holo_blue_dark"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:riv_border_color="@android:color/holo_orange_dark"
+        app:riv_border_width="3dp"
+        app:riv_corner_radius="16dp" />
 
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
         android:text="NIM"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
 
     <TextView
+        android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
         android:text="P.KIMIA 15"
-        android:layout_marginTop="100dp"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView23"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
 
     <TextView
+        android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UIN Jakarta"
+        android:layout_marginTop="10dp"
+        android:text="UIN Syarif Hidayatullah"
         android:textColor="@color/black"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="16dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Dosen 1"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView30"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/dosen1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16sp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="@+id/textView30"
+        app:layout_constraintTop_toBottomOf="@+id/textView31"
+        app:riv_border_color="@android:color/holo_orange_dark"
+        app:riv_border_width="3dp"
+        app:riv_corner_radius="16dp" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16sp"
+        android:text="Dosen 2"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/dosen2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView32"
+        app:riv_border_color="@android:color/holo_orange_dark"
+        app:riv_border_width="3dp"
+        app:riv_corner_radius="16dp" />
+
 
 
     <ImageButton

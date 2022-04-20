@@ -10,6 +10,9 @@ public class ProfileModel implements Parcelable {
     private String nim;
     private String lecturer1;
     private String lecturer2;
+    private String avatarLecturer1;
+    private String avatarLecturer2;
+    private String email;
 
     public ProfileModel() {}
 
@@ -19,6 +22,9 @@ public class ProfileModel implements Parcelable {
         nim = in.readString();
         lecturer1 = in.readString();
         lecturer2 = in.readString();
+        avatarLecturer1 = in.readString();
+        avatarLecturer2 = in.readString();
+        email = in.readString();
     }
 
     @Override
@@ -28,6 +34,9 @@ public class ProfileModel implements Parcelable {
         dest.writeString(nim);
         dest.writeString(lecturer1);
         dest.writeString(lecturer2);
+        dest.writeString(avatarLecturer1);
+        dest.writeString(avatarLecturer2);
+        dest.writeString(email);
     }
 
     @Override
@@ -85,5 +94,29 @@ public class ProfileModel implements Parcelable {
 
     public void setLecturer2(String lecturer2) {
         this.lecturer2 = lecturer2;
+    }
+
+    public String getAvatarLecturer1() {
+        return avatarLecturer1;
+    }
+
+    public void setAvatarLecturer1(String avatarLecturer1) {
+        this.avatarLecturer1 = avatarLecturer1;
+    }
+
+    public String getAvatarLecturer2() {
+        return avatarLecturer2;
+    }
+
+    public void setAvatarLecturer2(String avatarLecturer2) {
+        this.avatarLecturer2 = avatarLecturer2;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

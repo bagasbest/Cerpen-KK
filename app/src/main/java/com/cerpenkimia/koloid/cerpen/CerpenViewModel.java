@@ -30,7 +30,7 @@ public class CerpenViewModel extends ViewModel {
 
                                 model.setCerpenId("" + document.get("cerpenId"));
                                 model.setDescription("" + document.get("description"));
-                                model.setDp("" + document.get("dp"));
+                                model.setDp((ArrayList<String>) document.get("dp"));
                                 model.setTitle("" + document.get("title"));
 
                                 cerpenModelArrayList.add(model);

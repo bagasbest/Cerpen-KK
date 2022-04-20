@@ -2,25 +2,28 @@ package com.cerpenkimia.koloid.cerpen;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 import com.cerpenkimia.koloid.R;
 import com.cerpenkimia.koloid.databinding.ActivityCerpenEditBinding;
-import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.cerpenkimia.koloid.utils.EditDataActivity;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,9 +31,10 @@ public class CerpenEditActivity extends AppCompatActivity {
 
     public static final String EXTRA_CERPEN = "cerpen";
     private ActivityCerpenEditBinding binding;
+    private ImageAdapter adapter;
     private CerpenModel model;
-    private static final int REQUEST_FROM_GALLERY = 1001;
-    private String dp;
+    private final ArrayList<String> image = new ArrayList<>();
+    private static final int READ_PERMISSION = 1001;
 
 
     @Override
@@ -42,28 +46,52 @@ public class CerpenEditActivity extends AppCompatActivity {
         model = getIntent().getParcelableExtra(EXTRA_CERPEN);
         binding.titleEt.setText(model.getTitle());
         binding.descriptionEt.setText(model.getDescription());
-        Glide.with(this)
-                .load(model.getDp())
-                .into(binding.dp);
 
+        Log.e("tgf", String.valueOf(model.getDp().size()));
 
-        // KLIK PERBARUI GAMBAR
-        binding.imageHint.setOnClickListener(view -> ImagePicker.with(CerpenEditActivity.this)
-                .galleryOnly()
-                .compress(1024)
-                .start(REQUEST_FROM_GALLERY));
+        image.addAll(model.getDp());
+
+        checkImagePermission();
+        initRecyclerView();
 
         // kembali ke halaman detail
         binding.imageButton.setOnClickListener(view -> onBackPressed());
 
         // perbarui cerpen
-        binding.editBtn.setOnClickListener(new View.OnClickListener() {
+        binding.addCerpenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // pastikan tidak ada kolom yang kosong
-                formVerification();
+                if(image.size() == 0) {
+                    Toast.makeText(CerpenEditActivity.this, "Minimal 1 gambar terupdate", Toast.LENGTH_SHORT).show();
+                } else {
+                    formVerification();
+                }
             }
         });
+
+        binding.add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), 1);
+            }
+        });
+    }
+
+    private void checkImagePermission() {
+        if(ContextCompat.checkSelfPermission(CerpenEditActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(CerpenEditActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_PERMISSION);
+        }
+    }
+
+    private void initRecyclerView() {
+        adapter = new ImageAdapter(null, image, "edit");
+        binding.rvImage.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvImage.setAdapter(adapter);
     }
 
     private void formVerification() {
@@ -88,9 +116,7 @@ public class CerpenEditActivity extends AppCompatActivity {
         Map<String, Object> cerpen = new HashMap<>();
         cerpen.put("title", title);
         cerpen.put("description", description);
-        if(dp != null) {
-            cerpen.put("dp", dp);
-        }
+        cerpen.put("dp", image);
 
 
         FirebaseFirestore
@@ -125,8 +151,9 @@ public class CerpenEditActivity extends AppCompatActivity {
                 .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
                 .setPositiveButton("OKE", (dialogInterface, i) -> {
                     dialogInterface.dismiss();
-                    onBackPressed();
-                    onBackPressed();
+                    Intent gotoScreenVar = new Intent(CerpenEditActivity.this, CerpenActivity.class);
+                    gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(gotoScreenVar);
                 })
                 .show();
     }
@@ -135,13 +162,21 @@ public class CerpenEditActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == REQUEST_FROM_GALLERY) {
-                uploadCerpenImage(data.getData());
+        if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            if(data.getClipData() != null) {
+                int x = data.getClipData().getItemCount();
+
+                for(int i=0; i<x; i++) {
+                    uploadCerpenImage(data.getClipData().getItemAt(i).getUri());
+                }
+            } else {
+                Uri imageUri = data.getData();
+                uploadCerpenImage(imageUri);
             }
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void uploadCerpenImage(Uri data) {
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
         ProgressDialog mProgressDialog = new ProgressDialog(this);
@@ -156,11 +191,8 @@ public class CerpenEditActivity extends AppCompatActivity {
                         mStorageRef.child(imageFileName).getDownloadUrl()
                                 .addOnSuccessListener(uri -> {
                                     mProgressDialog.dismiss();
-                                    dp = uri.toString();
-                                    Glide
-                                            .with(this)
-                                            .load(dp)
-                                            .into(binding.dp);
+                                    image.add(uri.toString());
+                                    adapter.notifyDataSetChanged();
                                 })
                                 .addOnFailureListener(e -> {
                                     mProgressDialog.dismiss();

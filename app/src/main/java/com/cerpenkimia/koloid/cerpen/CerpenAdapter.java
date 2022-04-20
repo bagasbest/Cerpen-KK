@@ -61,7 +61,7 @@ public class CerpenAdapter extends RecyclerView.Adapter<CerpenAdapter.ViewHolder
 
         public void bind(CerpenModel model) {
             Glide.with(itemView.getContext())
-                    .load(model.getDp())
+                    .load(model.getDp().get(0))
                     .into(dp);
 
             title.setText(model.getTitle());

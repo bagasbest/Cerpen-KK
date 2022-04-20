@@ -35,6 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -46,17 +47,26 @@
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="silahkan tekan tombol + untuk beralih ke poin selanjutnya"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAdd"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        tools:listitem="@layout/item_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27"
+        tools:listitem="@layout/item_add" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add"

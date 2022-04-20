@@ -3,11 +3,14 @@ package com.cerpenkimia.koloid.cerpen;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CerpenModel implements Parcelable {
 
     private String title;
     private String description;
-    private String dp;
+    private ArrayList<String> dp;
     private String cerpenId;
 
     public CerpenModel() {}
@@ -15,7 +18,7 @@ public class CerpenModel implements Parcelable {
     protected CerpenModel(Parcel in) {
         title = in.readString();
         description = in.readString();
-        dp = in.readString();
+        dp = in.createStringArrayList();
         cerpenId = in.readString();
     }
 
@@ -23,7 +26,7 @@ public class CerpenModel implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(title);
         dest.writeString(description);
-        dest.writeString(dp);
+        dest.writeStringList(dp);
         dest.writeString(cerpenId);
     }
 
@@ -60,11 +63,11 @@ public class CerpenModel implements Parcelable {
         this.description = description;
     }
 
-    public String getDp() {
+    public ArrayList<String> getDp() {
         return dp;
     }
 
-    public void setDp(String dp) {
+    public void setDp(ArrayList<String> dp) {
         this.dp = dp;
     }
 

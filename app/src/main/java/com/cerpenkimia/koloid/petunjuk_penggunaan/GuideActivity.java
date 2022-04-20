@@ -34,9 +34,6 @@ public class GuideActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityGuideBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        checkRole();
-
-
 
         binding.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,13 +85,17 @@ public class GuideActivity extends AppCompatActivity {
                 data.addAll(guide.get(0).getData());
                 adapter.setData(data);
             }
+            checkRole();
         });
     }
 
     private void checkRole() {
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
-            binding.add.setVisibility(View.VISIBLE);
-            binding.edit.setVisibility(View.VISIBLE);
+            if(data.size() == 0) {
+                binding.add.setVisibility(View.VISIBLE);
+            } else {
+                binding.edit.setVisibility(View.VISIBLE);
+            }
         }
     }
 

@@ -2,16 +2,20 @@ package com.cerpenkimia.koloid.cerpen;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.bumptech.glide.Glide;
 import com.cerpenkimia.koloid.R;
 import com.cerpenkimia.koloid.databinding.ActivityCerpenDetailBinding;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 public class CerpenDetailActivity extends AppCompatActivity {
 
@@ -26,16 +30,14 @@ public class CerpenDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // cek apakah admin atau bukan
-        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             binding.editBtn.setVisibility(View.VISIBLE);
             binding.deleteBtn.setVisibility(View.VISIBLE);
         }
 
         // ambil data cerpen dan set data cerpen ke dalam view xml
         model = getIntent().getParcelableExtra(EXTRA_CERPEN);
-        Glide.with(this)
-                .load(model.getDp())
-                .into(binding.dp);
+        showOnboardingImage();
 
         binding.title.setText(model.getTitle());
         binding.description.setText(model.getDescription());
@@ -66,6 +68,16 @@ public class CerpenDetailActivity extends AppCompatActivity {
 
     }
 
+    private void showOnboardingImage() {
+        final ArrayList<SlideModel> imageList = new ArrayList<>();// Create image list
+
+        for (int i = 0; i < model.getDp().size(); i++) {
+            imageList.add(new SlideModel(model.getDp().get(i), ScaleTypes.CENTER_CROP));
+        }
+
+        binding.dp.setImageList(imageList);
+    }
+
     private void deleteCerpen() {
 
         ProgressDialog mProgressDialog = new ProgressDialog(this);
@@ -80,7 +92,7 @@ public class CerpenDetailActivity extends AppCompatActivity {
                 .document(model.getCerpenId())
                 .delete()
                 .addOnCompleteListener(task -> {
-                    if(task.isSuccessful()) {
+                    if (task.isSuccessful()) {
                         mProgressDialog.dismiss();
                         showSuccessDeleteCerpenDialog();
                     } else {

@@ -86,6 +86,33 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:id="@+id/textInputLayout6"
+            android:textColorHint="@color/black"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:background="@drawable/bg_rounded"
+                android:backgroundTint="@color/white"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout3"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -98,7 +125,7 @@
             app:hintTextColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/lecturer1Et"
@@ -185,6 +212,81 @@
             app:layout_constraintTop_toTopOf="@+id/dp"
             app:tint="@color/white" />
 
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tambahkan Foto Dosen 1"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/view12"
+            app:layout_constraintTop_toBottomOf="@+id/dp" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/dp2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_rounded"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:riv_corner_radius="15dp" />
+
+        <ImageView
+            android:id="@+id/imageHint2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_baseline_add_a_photo_24"
+            app:layout_constraintBottom_toBottomOf="@+id/dp2"
+            app:layout_constraintEnd_toEndOf="@+id/dp2"
+            app:layout_constraintStart_toStartOf="@+id/dp2"
+            app:layout_constraintTop_toTopOf="@+id/dp2"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tambahkan Foto Dosen 2"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/view12"
+            app:layout_constraintTop_toBottomOf="@+id/dp2" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/dp3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_rounded"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:riv_corner_radius="15dp" />
+
+        <ImageView
+            android:id="@+id/imageHint3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_baseline_add_a_photo_24"
+            app:layout_constraintBottom_toBottomOf="@+id/dp3"
+            app:layout_constraintEnd_toEndOf="@+id/dp3"
+            app:layout_constraintStart_toStartOf="@+id/dp3"
+            app:layout_constraintTop_toTopOf="@+id/dp3"
+            app:tint="@color/white" />
+
+
 
         <Button
             android:id="@+id/saveBtn"
@@ -203,7 +305,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dp" />
+            app:layout_constraintTop_toBottomOf="@+id/dp3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
