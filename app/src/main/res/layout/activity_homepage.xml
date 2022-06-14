@@ -34,7 +34,7 @@
         android:layout_height="40dp"
         android:src="@drawable/ic_baseline_login_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white"
+        app:tint="@color/black"
         android:contentDescription="@string/button"
         android:background="@drawable/bg_rounded"
         android:id="@+id/login"
